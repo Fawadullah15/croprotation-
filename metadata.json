@@ -1,0 +1,6 @@
+{
+  "name": "AgroSpace Pakistan",
+  "description": "AI-Powered Smart Crop Rotation & Soil Intelligence Platform for Pakistani farmers with Google Maps land selection, NASA satellite intelligence, and personalized agricultural recommendations.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
