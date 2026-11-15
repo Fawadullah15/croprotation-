@@ -1,5 +1,5 @@
 import React from 'react';
-import { Satellite, ShieldCheck, Heart, MapPin, Mail, Phone } from 'lucide-react';
+import { Sprout, ShieldCheck, Heart, MapPin, Mail, Phone } from 'lucide-react';
 import { useFarm } from '../context/FarmContext';
 
 export const Footer: React.FC<{ onNavigate: (tab: string) => void }> = ({ onNavigate }) => {
@@ -13,12 +13,12 @@ export const Footer: React.FC<{ onNavigate: (tab: string) => void }> = ({ onNavi
           <div className="md:col-span-1 space-y-3">
             <div className="flex items-center gap-2.5">
               <div className="w-9 h-9 rounded-lg bg-[#35A853] flex items-center justify-center">
-                <Satellite className="w-5 h-5 text-[#102A43]" />
+                <Sprout className="w-5 h-5 text-[#102A43]" />
               </div>
-              <span className="text-xl font-extrabold tracking-tight">AGROSPACE</span>
+              <span className="text-xl font-extrabold tracking-tight">CROPROTATION</span>
             </div>
             <p className="text-xs text-gray-300 leading-relaxed">
-              Empowering farmers across Faisalabad and Punjab with AI-driven crop rotation, NASA Earth observation satellite insights, and regenerative soil intelligence.
+              Empowering farmers across Faisalabad and Punjab with AI-driven crop rotation, soil health analysis, and regenerative agronomic intelligence.
             </p>
             <div className="text-xs text-emerald-400 font-semibold">
               Tagline: "Smart Farming. Healthy Soil. Sustainable Future."
@@ -38,12 +38,12 @@ export const Footer: React.FC<{ onNavigate: (tab: string) => void }> = ({ onNavi
               </li>
               <li>
                 <button onClick={() => onNavigate('map')} className="hover:text-[#35A853] transition-colors">
-                  Google Maps Field Boundary
+                  Interactive Field Boundary Map
                 </button>
               </li>
               <li>
                 <button onClick={() => onNavigate('soil')} className="hover:text-[#35A853] transition-colors">
-                  NASA Soil &amp; NDVI Intelligence
+                  Soil Health &amp; NDVI Intelligence
                 </button>
               </li>
               <li>
@@ -79,7 +79,7 @@ export const Footer: React.FC<{ onNavigate: (tab: string) => void }> = ({ onNavi
               </li>
               <li className="flex items-center gap-1.5">
                 <ShieldCheck className="w-3.5 h-3.5 text-[#35A853]" />
-                NASA SMAP &amp; MODIS Agroclimatology
+                Regional Agroclimatology &amp; Soil Telemetry
               </li>
             </ul>
           </div>
@@ -96,7 +96,7 @@ export const Footer: React.FC<{ onNavigate: (tab: string) => void }> = ({ onNavi
               </p>
               <p className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-emerald-400" />
-                support@agrospace.pk
+                support@croprotation.pk
               </p>
               <p className="text-[11px] text-gray-400 pt-2 border-t border-gray-800">
                 Specially designed for canal &amp; tubewell farmers in Central Punjab.
@@ -106,7 +106,7 @@ export const Footer: React.FC<{ onNavigate: (tab: string) => void }> = ({ onNavi
         </div>
 
         <div className="mt-8 pt-6 border-t border-gray-800 flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 gap-3">
-          <p>© {new Date().getFullYear()} AgroSpace Pakistan. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} CropRotation Pakistan. All rights reserved.</p>
           <p className="flex items-center gap-1 text-gray-400">
             Dedicated to the prosperity of Pakistani Kisan Brothers <Heart className="w-3.5 h-3.5 text-red-500 fill-red-500" />
           </p>

@@ -1,7 +1,9 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import dotenv from 'dotenv';
 import {
   getKisanAdvisorResponse,
   analyzeCropDiseaseImage,
@@ -9,8 +11,6 @@ import {
   checkSoilRiskWithAI,
 } from './src/server/geminiService.ts';
 import { fetchNasaSatelliteEvidence } from './src/utils/nasaData.ts';
-
-dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,7 +25,7 @@ async function startServer() {
   app.get('/api/health', (_req, res) => {
     res.json({
       status: 'ok',
-      service: 'AgroSpace Pakistan API',
+      service: 'CropRotation Pakistan API',
       region: 'Faisalabad, Punjab',
       timestamp: new Date().toISOString(),
     });
@@ -163,7 +163,7 @@ async function startServer() {
 
   // Bind port 3000 immediately so dev server readiness checks succeed right away
   app.listen(PORT, '0.0.0.0', () => {
-    console.log(`AgroSpace Pakistan server running on http://0.0.0.0:${PORT}`);
+    console.log(`CropRotation server running on http://0.0.0.0:${PORT}`);
   });
 }
 

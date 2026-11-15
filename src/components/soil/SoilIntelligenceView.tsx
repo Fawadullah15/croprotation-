@@ -46,6 +46,7 @@ export const SoilIntelligenceView: React.FC<{ onStartRotation?: () => void }> = 
       const res = await fetch('/api/gemini/soil-check', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: AbortSignal.timeout(20000),
         body: JSON.stringify({
           city: farmer.location.village || 'Faisalabad',
           soilType: farmer.soilType,

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Satellite, Award, Heart, MapPin, Users, BookOpen } from 'lucide-react';
+import { Sprout, Award, Heart, MapPin, Users, BookOpen } from 'lucide-react';
 import { useFarm } from '../../context/FarmContext';
 
 export const AboutUs: React.FC<{ onStartRotation?: () => void }> = ({ onStartRotation }) => {
@@ -10,16 +10,16 @@ export const AboutUs: React.FC<{ onStartRotation?: () => void }> = ({ onStartRot
       {/* Banner */}
       <div className="bg-gradient-to-br from-[#123D2A] to-[#102A43] text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-emerald-500/20 text-center space-y-4">
         <div className="w-14 h-14 rounded-2xl bg-[#35A853] text-[#123D2A] flex items-center justify-center mx-auto shadow-lg">
-          <Satellite className="w-8 h-8" />
+          <Sprout className="w-8 h-8" />
         </div>
         <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight">
-          About AgroSpace Pakistan
+          About CropRotation Pakistan
         </h1>
         <p className="text-emerald-300 font-bold text-sm">
           Tagline: "Smart Farming. Healthy Soil. Sustainable Future."
         </p>
         <p className="max-w-2xl mx-auto text-xs sm:text-sm text-gray-200 leading-relaxed">
-          Pioneering the intersection of Google Maps geospatial intelligence, NASA Earth observation satellite observations, and Punjabi agronomic wisdom to help farmers in Faisalabad and across Pakistan break destructive monoculture cycles.
+          Pioneering the intersection of interactive GIS farm mapping, soil health telemetry, and Pakistani agronomic wisdom to help farmers in Faisalabad and across Punjab break destructive monoculture cycles.
         </p>
       </div>
 

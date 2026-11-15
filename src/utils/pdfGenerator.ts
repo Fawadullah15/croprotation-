@@ -19,7 +19,7 @@ export function generateCropRotationPdf(plan: RotationPlanResult): void {
   doc.setTextColor(255, 255, 255);
   doc.setFontSize(20);
   doc.setFont('helvetica', 'bold');
-  doc.text('AGROSPACE PAKISTAN', 14, 13);
+  doc.text('CROPROTATION PAKISTAN', 14, 13);
 
   doc.setFontSize(9);
   doc.setFont('helvetica', 'normal');
@@ -240,8 +240,8 @@ export function generateCropRotationPdf(plan: RotationPlanResult): void {
   doc.setTextColor(120, 130, 140);
   doc.setFont('helvetica', 'italic');
   doc.text('Notice: Soil scores, water budgets, and financial estimates are derived from verified agricultural modeling and Faisalabad agronomic research.', 14, y);
-  doc.text('AgroSpace Pakistan - Ministry of National Food Security & Research & University of Agriculture Faisalabad Knowledge Base Standards.', 14, y + 4);
+  doc.text('CropRotation Pakistan - Ministry of National Food Security & Research & University of Agriculture Faisalabad Knowledge Base Standards.', 14, y + 4);
 
   // Trigger browser download
-  doc.save(`AgroSpace_Report_${plan.farmer.name || 'Farm'}_${new Date().toISOString().split('T')[0]}.pdf`);
+  doc.save(`CropRotation_Report_${plan.farmer.name || 'Farm'}_${new Date().toISOString().split('T')[0]}.pdf`);
 }

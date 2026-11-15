@@ -59,6 +59,7 @@ export const DiseaseDetector: React.FC = () => {
       const res = await fetch('/api/gemini/disease', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: AbortSignal.timeout(20000),
         body: JSON.stringify({
           imageBase64: selectedImage,
           mimeType: selectedMimeType,

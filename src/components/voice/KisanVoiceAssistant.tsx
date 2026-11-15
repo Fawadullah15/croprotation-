@@ -31,8 +31,8 @@ export const KisanVoiceAssistant: React.FC<{ isOpen?: boolean; onClose?: () => v
     {
       id: 'welcome',
       sender: 'assistant',
-      text: 'Salam Kisan Bhai! I am your AgroSpace AI Agricultural Advisor. You can speak or type in English, Urdu (اردو), or Roman Urdu. How can I assist your farm today?',
-      urduText: 'سلام کسان بھائی! میں آپ کا ایگرو اسپیس زرعی مشیر ہوں۔ آپ اردو، انگریزی یا رومن اردو میں بول کر یا لکھ کر سوال پوچھ سکتے ہیں۔',
+      text: 'Salam Kisan Bhai! I am your CropRotation AI Agricultural Advisor. You can speak or type in English, Urdu (اردو), or Roman Urdu. How can I assist your farm today?',
+      urduText: 'سلام کسان بھائی! میں آپ کا کراپ روٹیشن زرعی مشیر ہوں۔ آپ اردو، انگریزی یا رومن اردو میں بول کر یا لکھ کر سوال پوچھ سکتے ہیں۔',
       timestamp: 'Now',
     },
   ]);
@@ -144,6 +144,7 @@ export const KisanVoiceAssistant: React.FC<{ isOpen?: boolean; onClose?: () => v
       const res = await fetch('/api/gemini/advisor', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: AbortSignal.timeout(15000),
         body: JSON.stringify({
           query,
           language: mode === 'simple_voice' ? 'ur' : language,

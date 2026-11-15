@@ -108,7 +108,7 @@ export const FarmProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   const [language, setLanguage] = useState<SupportedLanguage>('en');
   const [farmer, setFarmer] = useState<FarmerProfile>(() => {
     try {
-      const saved = localStorage.getItem('agrospace_farmer');
+      const saved = localStorage.getItem('croprotation_farmer') || localStorage.getItem('agrospace_farmer');
       return saved ? JSON.parse(saved) : DEFAULT_FARMER;
     } catch {
       return DEFAULT_FARMER;
@@ -117,7 +117,7 @@ export const FarmProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const [cropHistory, setCropHistory] = useState<CropHistoryInfo>(() => {
     try {
-      const saved = localStorage.getItem('agrospace_crop_history');
+      const saved = localStorage.getItem('croprotation_crop_history') || localStorage.getItem('agrospace_crop_history');
       return saved ? JSON.parse(saved) : DEFAULT_CROP_HISTORY;
     } catch {
       return DEFAULT_CROP_HISTORY;
@@ -131,7 +131,7 @@ export const FarmProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const [savedPlans, setSavedPlans] = useState<RotationPlanResult[]>(() => {
     try {
-      const saved = localStorage.getItem('agrospace_saved_plans');
+      const saved = localStorage.getItem('croprotation_saved_plans') || localStorage.getItem('agrospace_saved_plans');
       return saved ? JSON.parse(saved) : [];
     } catch {
       return [];
@@ -140,7 +140,7 @@ export const FarmProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const [fieldDiary, setFieldDiary] = useState<FieldDiaryEntry[]>(() => {
     try {
-      const saved = localStorage.getItem('agrospace_field_diary');
+      const saved = localStorage.getItem('croprotation_field_diary') || localStorage.getItem('agrospace_field_diary');
       return saved ? JSON.parse(saved) : INITIAL_DIARY_ENTRIES;
     } catch {
       return INITIAL_DIARY_ENTRIES;
@@ -157,25 +157,25 @@ export const FarmProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
   // Sync to localStorage
   useEffect(() => {
     try {
-      localStorage.setItem('agrospace_farmer', JSON.stringify(farmer));
+      localStorage.setItem('croprotation_farmer', JSON.stringify(farmer));
     } catch {}
   }, [farmer]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('agrospace_crop_history', JSON.stringify(cropHistory));
+      localStorage.setItem('croprotation_crop_history', JSON.stringify(cropHistory));
     } catch {}
   }, [cropHistory]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('agrospace_saved_plans', JSON.stringify(savedPlans));
+      localStorage.setItem('croprotation_saved_plans', JSON.stringify(savedPlans));
     } catch {}
   }, [savedPlans]);
 
   useEffect(() => {
     try {
-      localStorage.setItem('agrospace_field_diary', JSON.stringify(fieldDiary));
+      localStorage.setItem('croprotation_field_diary', JSON.stringify(fieldDiary));
     } catch {}
   }, [fieldDiary]);
 

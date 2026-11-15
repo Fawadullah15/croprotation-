@@ -12,49 +12,59 @@ const getGeminiClient = () => {
   ) {
     return null;
   }
-  return new GoogleGenAI({
-    apiKey,
-    httpOptions: {
-      headers: {
-        'User-Agent': 'aistudio-build',
-      },
-    },
-  });
+  return new GoogleGenAI({ apiKey, apiVersion: 'v1beta' });
 };
 
-const PRIMARY_MODEL = 'gemini-3.1-flash-lite';
-const FALLBACK_MODEL = 'gemini-4-hydrogen';
+// Candidate models prioritized by live responsiveness and availability
+const CANDIDATE_MODELS = Array.from(
+  new Set(
+    [
+      process.env.GEMINI_MODEL?.trim(),
+      'gemini-3-flash-preview',
+      'gemini-3.5-flash',
+      'gemini-3.5-flash-lite',
+      'gemini-4-hydrogen',
+      'gemini-3.8-flash',
+    ].filter(Boolean) as string[]
+  )
+);
 
 async function generateWithFallback(
   ai: GoogleGenAI,
   contents: any,
-  extraConfig: Record<string, any> = {}
+  extraConfig: Record<string, any> = {},
+  timeoutMs: number = 8000
 ) {
-  try {
-    return await ai.models.generateContent({
-      model: PRIMARY_MODEL,
-      contents,
-      config: extraConfig,
-    });
-  } catch (err: any) {
-    const status = err?.status || err?.code;
-    const msg = String(err?.message || '');
-    if (status === 503 || status === 429 || msg.includes('503') || msg.includes('UNAVAILABLE')) {
-      try {
-        return await ai.models.generateContent({
-          model: FALLBACK_MODEL,
-          contents,
-          config: {
-            thinkingConfig: { thinkingLevel: ThinkingLevel.LOW },
-            ...extraConfig,
-          },
-        });
-      } catch {
-        throw new Error('AI server abhi masroof hai, thori der baad dobara button dabayein.');
+  let lastError: any = null;
+  for (const model of CANDIDATE_MODELS) {
+    try {
+      const generatePromise = ai.models.generateContent({
+        model,
+        contents,
+        config: extraConfig,
+      });
+
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(
+          () => reject(new Error(`Timeout: Model "${model}" did not respond in ${timeoutMs}ms`)),
+          timeoutMs
+        )
+      );
+
+      const response = (await Promise.race([generatePromise, timeoutPromise])) as any;
+      if (response && (response.text !== undefined || response.candidates?.length)) {
+        return response;
       }
+    } catch (err: any) {
+      console.warn(`[Gemini] Model "${model}" failed/timed out:`, err?.message || err);
+      lastError = err;
     }
-    throw new Error('AI request fail ho gayi, dobara koshish karein.');
   }
+
+  console.error('[Gemini] All candidate models failed. Last error:', lastError);
+  throw new Error(
+    lastError?.message || 'AI server abhi masroof hai ya request fail ho gayi, dobara koshish karein.'
+  );
 }
 
 /**

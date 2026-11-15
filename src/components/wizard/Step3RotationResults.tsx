@@ -493,7 +493,7 @@ export const Step3RotationResults: React.FC<Step3Props> = ({ onNewPlan, onOpenMa
 
               <div>
                 <div className="flex justify-between text-gray-600 mb-1">
-                  <span>AgroSpace Recommended:</span>
+                  <span>CropRotation Recommended:</span>
                   <span className="font-bold text-emerald-700">{p.waterBudget.recommendedRequirementM3.toLocaleString()} m³</span>
                 </div>
                 <div className="w-full bg-gray-200 h-2 rounded-full overflow-hidden">

@@ -61,12 +61,12 @@ export const Navbar: React.FC<NavbarProps> = ({ currentTab, setCurrentTab }) => 
             className="flex items-center gap-3 cursor-pointer group"
           >
             <div className="w-11 h-11 rounded-xl bg-gradient-to-tr from-[#35A853] to-emerald-400 flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform">
-              <Satellite className="w-6 h-6 text-[#123D2A]" />
+              <Sprout className="w-6 h-6 text-[#123D2A]" />
             </div>
             <div>
               <div className="flex items-center gap-1.5">
                 <span className="font-extrabold text-xl tracking-tight text-white">
-                  AGROSPACE
+                  CROP ROTATION
                 </span>
                 <span className="text-xs px-1.5 py-0.5 rounded bg-[#35A853] text-[#123D2A] font-extrabold uppercase">
                   Pakistan

@@ -47,19 +47,19 @@ export const HomePage: React.FC<HomePageProps> = ({
     },
     {
       num: '03',
-      title: 'Receive NASA & AI Plan',
+      title: 'Receive Crop Rotation Plan',
       urdu: 'مکمل روٹیشن پلان حاصل کریں',
       desc: 'Get instant DO and DONT crop advisories, 3-year timeline, soil health gauges, and printable PDF reports.',
-      icon: Satellite,
+      icon: CheckCircle,
     },
   ];
 
   const coreFeatures = [
     {
-      title: 'NASA SMAP & MODIS Satellite Feed',
-      urdu: 'ناسا سیٹلائٹ شواہد',
-      desc: 'Real root-zone soil moisture (0-100cm depth) and MODIS vegetation vigor telemetry georeferenced to your farm coordinates.',
-      icon: Satellite,
+      title: 'Soil Moisture & NDVI Telemetry',
+      urdu: 'سیٹلائٹ مٹی اور پودوں کی جانچ',
+      desc: 'Real root-zone soil moisture (0-100cm depth) and vegetation vigor telemetry georeferenced to your farm coordinates.',
+      icon: Activity,
       color: 'text-[#35A853] bg-emerald-50',
     },
     {
@@ -116,8 +116,8 @@ export const HomePage: React.FC<HomePageProps> = ({
           {/* Subtitle */}
           <p className="max-w-2xl mx-auto text-sm sm:text-base text-emerald-100/90 leading-relaxed">
             {language === 'ur'
-              ? 'ناسا سیٹلائٹ ڈیٹا، مٹی کی گہری جانچ اور جدید سمارٹ فصل روٹیشن کے ذریعے زیادہ منافع حاصل کریں، پانی بچائیں اور مٹی کو دوبارہ زرخیز بنائیں۔'
-              : 'AgroSpace Pakistan harnesses Google Maps land boundary selection, NASA Earth Observation satellite telemetry, and agricultural intelligence to prescribe optimal crop rotations, save water, and maximize farm profitability.'}
+              ? 'مٹی کی گہری جانچ اور جدید سمارٹ فصل روٹیشن کے ذریعے زیادہ منافع حاصل کریں، پانی بچائیں اور مٹی کو دوبارہ زرخیز بنائیں۔'
+              : 'CropRotation Pakistan harnesses interactive land boundary selection, soil telemetry, and agricultural intelligence to prescribe optimal crop rotations, save water, and maximize farm profitability.'}
           </p>
 
           {/* CTA Buttons */}
@@ -155,7 +155,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             </div>
             <div>
               <span className="text-2xl sm:text-3xl font-extrabold text-[#35A853] block">100%</span>
-              <span className="text-[11px] text-gray-300">NASA Earthdata Verified</span>
+              <span className="text-[11px] text-gray-300">Soil &amp; Climate Telemetry</span>
             </div>
           </div>
         </div>
@@ -168,7 +168,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             Streamlined 3-Step Decision Flow
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#102A43]">
-            {language === 'ur' ? 'یہ نظام کیسے کام کرتا ہے؟' : 'How AgroSpace Pakistan Works'}
+            {language === 'ur' ? 'یہ نظام کیسے کام کرتا ہے؟' : 'How CropRotation Works'}
           </h2>
           <p className="text-xs text-gray-500 max-w-xl mx-auto">
             From field boundary polygon mapping to comprehensive 3-year crop rotation roadmaps in minutes.
@@ -237,18 +237,18 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* SECTION 3: NASA SATELLITE PREVIEW STRIP */}
+      {/* SECTION 3: SATELLITE PREVIEW STRIP */}
       <section className="bg-gradient-to-r from-[#102A43] to-[#123D2A] text-white rounded-3xl p-8 sm:p-12 shadow-xl border border-emerald-500/20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
             <span className="text-xs uppercase font-bold text-emerald-300 tracking-wider">
-              NASA Earth Observation Integration
+              Regional Satellite &amp; Soil Telemetry
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold leading-tight">
-              Real Space Evidence Before Every Single Crop Advice
+              Real Soil &amp; Climate Evidence Before Every Crop Advice
             </h2>
             <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
-              AgroSpace Pakistan never invents hypothetical measurements. We interrogate NASA SMAP (Soil Moisture Active Passive), MODIS NDVI vegetation cover, and NASA POWER agroclimatology APIs directly for your farm coordinates in Faisalabad.
+              CropRotation Pakistan integrates satellite soil moisture, NDVI vegetation vigor, and regional agroclimatology telemetry directly for your farm coordinates in Faisalabad and across Punjab.
             </p>
             <div className="pt-2">
               <button

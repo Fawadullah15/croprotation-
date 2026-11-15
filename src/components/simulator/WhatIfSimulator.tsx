@@ -54,6 +54,7 @@ export const WhatIfSimulator: React.FC = () => {
       const res = await fetch('/api/gemini/rotation-compare', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: AbortSignal.timeout(20000),
         body: JSON.stringify({ crops: selectedLabels }),
       });
       const data = await res.json();

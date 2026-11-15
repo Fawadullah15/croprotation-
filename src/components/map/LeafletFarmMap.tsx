@@ -174,7 +174,7 @@ export const LeafletFarmMap: React.FC<LeafletFarmMapProps> = ({ onLocationConfir
       pinMarkerRef.current.setLatLng([centerPoint.lat, centerPoint.lng]);
     } else {
       const farmIcon = L.divIcon({
-        className: 'agrospace-leaflet-pin',
+        className: 'croprotation-leaflet-pin',
         html: `
           <div style="display:flex;flex-direction:column;align-items:center;transform:translate(-50%,-100%);">
             <div style="background:#123D2A;color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:8px;border:2px solid #35A853;white-space:nowrap;box-shadow:0 4px 10px rgba(0,0,0,0.3);">
@@ -220,7 +220,7 @@ export const LeafletFarmMap: React.FC<LeafletFarmMapProps> = ({ onLocationConfir
 
     polygon.forEach((pt, idx) => {
       const vIcon = L.divIcon({
-        className: 'agrospace-vertex-dot',
+        className: 'croprotation-vertex-dot',
         html: `<div style="width:20px;height:20px;border-radius:9999px;background:#35A853;border:2px solid #fff;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,0.35);transform:translate(-50%,-50%);">${idx + 1}</div>`,
         iconSize: [0, 0],
         iconAnchor: [0, 0],
